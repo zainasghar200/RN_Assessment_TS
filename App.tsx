@@ -70,7 +70,7 @@ const App: () => Node = () => {
           style={{
             backgroundColor: isDarkMode ? Colors.black : Colors.white,
           }}>
-          <Section title="Step One gg">
+          <Section title="Step Oxxne gg">
             Edit <Text style={styles.highlight}>App.js</Text> to change this
             screen and then coxddme back to see your edits.
           </Section>

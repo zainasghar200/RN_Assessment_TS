@@ -4,6 +4,16 @@ import React from 'react';
 const MoreScreen = () => {
   return <Text style={styles.container}>MoreScreen</Text>;
 };
+MoreScreen.options = {
+  topBar: {
+    title: {
+      text: 'Settings',
+    },
+  },
+  bottomTab: {
+    text: 'Settings',
+  },
+};
 
 const styles = StyleSheet.create({
   container: {

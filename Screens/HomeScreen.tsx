@@ -1,17 +1,26 @@
-import {View, Text, TouchableOpacity, StyleSheet, Image} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Image,
+  Button,
+} from 'react-native';
 import React from 'react';
+import {Navigation} from 'react-native-navigation';
 
-const HomeScreen = () => {
+const HomeScreen = (props: any) => {
+  const goToSCreen = (screen: string) => {
+    console.log(screen);
+    Navigation.push(props.componentId, {
+      component: {
+        name: 'More',
+      },
+    });
+  };
   return (
-    <View>
-      <Image
-        source={require('../assets/icons/home.png')}
-        style={{
-          width: 25,
-          height: 25,
-        }}></Image>
-      <Text style={styles.container}>HomeScreen</Text>
-      <Text style={styles.container}>HomeScreen</Text>
+    <View style={styles.container}>
+      <Button title="More Options" onPress={() => goToSCreen('More')} />
     </View>
   );
 };

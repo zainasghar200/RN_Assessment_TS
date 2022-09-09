@@ -1,9 +1,30 @@
-/**
- * @format
- */
+import {Navigation} from 'react-native-navigation';
+import HomeScreen from './Screens/HomeScreen';
+import MoreScreen from './Screens/MoreScreen';
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
+Navigation.registerComponent('Home', () => HomeScreen);
+Navigation.registerComponent('More', () => MoreScreen);
 
-AppRegistry.registerComponent(appName, () => App);
+Navigation.events().registerAppLaunchedListener(() => {
+  Navigation.setRoot({
+    root: {
+      stack: {
+        id: 'AppStack',
+        children: [
+          {
+            component: {
+              name: 'Home',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'Home',
+                  },
+                },
+              },
+            },
+          },
+        ],
+      },
+    },
+  });
+});
