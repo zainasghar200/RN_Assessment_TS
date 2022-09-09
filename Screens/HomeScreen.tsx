@@ -20,9 +20,19 @@ const HomeScreen = (props: any) => {
   };
   return (
     <View style={styles.container}>
-      <Button title="More Options" onPress={() => goToSCreen('More')} />
+      <Text style={styles.screenTitle}>Home</Text>
     </View>
   );
+};
+HomeScreen.options = {
+  topBar: {
+    title: {
+      text: 'Home',
+    },
+  },
+  bottomTab: {
+    text: 'Home',
+  },
 };
 
 const styles = StyleSheet.create({

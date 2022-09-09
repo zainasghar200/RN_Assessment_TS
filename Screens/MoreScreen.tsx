@@ -1,17 +1,42 @@
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
 import React from 'react';
+import {Navigation} from 'react-native-navigation';
 
-const MoreScreen = () => {
-  return <Text style={styles.container}>MoreScreen</Text>;
+const MoreScreen = (props: any) => {
+  const showModal = () => {
+    Navigation.showModal({
+      stack: {
+        children: [
+          {
+            component: {
+              name: 'Modal',
+              options: {
+                topBar: {
+                  title: {
+                    text: 'My Modal',
+                  },
+                },
+              },
+            },
+          },
+        ],
+      },
+    });
+  };
+  return (
+    <View style={styles.container}>
+      <Button title="More Options" onPress={() => showModal()} />
+    </View>
+  );
 };
 MoreScreen.options = {
   topBar: {
     title: {
-      text: 'Settings',
+      text: 'More',
     },
   },
   bottomTab: {
-    text: 'Settings',
+    text: 'More',
   },
 };
 
