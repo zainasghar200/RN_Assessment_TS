@@ -5,13 +5,21 @@ import ModalScreen from './src/Screens/ModalScreen';
 import MoreScreen from './src/Screens/MoreScreen';
 import {appProvider} from './src/services/navigation/provider';
 import store from './src/redux/store';
+import {
+  ADD_SCREEN,
+  HOME_SCREEN,
+  MODAL_SCREEN,
+  MORE_SCREEN,
+} from './src/services/constants';
 
-Navigation.registerComponent('Modal', () =>
-  appProvider('Modal', ModalScreen, store),
+Navigation.registerComponent(MODAL_SCREEN, () =>
+  appProvider(MODAL_SCREEN, ModalScreen, store),
 );
-Navigation.registerComponent('Add', () => appProvider('Add', AddScreen, store));
-Navigation.registerComponent('Home', () => HomeScreen);
-Navigation.registerComponent('More', () => MoreScreen);
+Navigation.registerComponent(ADD_SCREEN, () =>
+  appProvider(ADD_SCREEN, AddScreen, store),
+);
+Navigation.registerComponent(HOME_SCREEN, () => HomeScreen);
+Navigation.registerComponent(MORE_SCREEN, () => MoreScreen);
 
 Navigation.events().registerAppLaunchedListener(() => {
   Navigation.setRoot({

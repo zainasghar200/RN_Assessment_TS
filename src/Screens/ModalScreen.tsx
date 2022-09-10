@@ -13,6 +13,7 @@ import {setData} from '../redux/actions';
 import FAB from '../components/FAB';
 import {Data} from '../types/types';
 import Toast from 'react-native-simple-toast';
+import {ADD_SCREEN} from '../services/constants';
 
 const ModalScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +66,7 @@ const ModalScreen = (props: any) => {
               extraData={listData}
             />
           </SafeAreaView>
-          <FAB onPress={() => goToScreen('Add')} title="Add" />
+          <FAB onPress={() => goToScreen(ADD_SCREEN)} title="Add" />
         </View>
       )}
     </View>

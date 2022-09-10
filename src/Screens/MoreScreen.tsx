@@ -11,8 +11,6 @@ import React from 'react';
 import {Navigation} from 'react-native-navigation';
 
 const MoreScreen = (props: any) => {
-  const windowWidth = Dimensions.get('window').width;
-  const windowHeight = Dimensions.get('window').height;
   const showModal = () => {
     Navigation.showModal({
       stack: {
