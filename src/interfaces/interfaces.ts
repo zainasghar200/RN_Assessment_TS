@@ -1,17 +1,19 @@
+import {Data} from '../types/types';
+
 export interface AddDataAction {
   type: 'ADD_DATA';
-  payload: any;
+  payload: Data;
 }
 
 export interface SetDataAction {
   type: 'SET_DATA';
-  payload: any;
+  payload: Data[];
 }
 
 export interface AppState {
-  data: any; //list of data
+  data: Data[];
 }
 
 export interface InitialState {
-  data: any;
+  data: Data[];
 }

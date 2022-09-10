@@ -18,9 +18,6 @@ const windowHeight = Dimensions.get('window').height;
 
 const AddScreen = (props: any) => {
   let dataReducer: any = useSelector(state => state);
-
-  console.log(dataReducer);
-
   dataReducer = dataReducer['dataReducer'];
   let listData: [] = dataReducer['data'];
 

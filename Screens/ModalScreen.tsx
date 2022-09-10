@@ -13,6 +13,7 @@ import {SET_DATA} from '../src/redux/actionTypes';
 import {setData} from '../src/redux/actions';
 import FAB from '../components/FAB';
 import {InitialState} from '../src/interfaces/interfaces';
+import {Data} from '../src/types/types';
 
 const ModalScreen = (props: any) => {
   //const listData = useSelector((state: InitialState) => state.data);
@@ -21,7 +22,7 @@ const ModalScreen = (props: any) => {
 
   let dataReducer: any = useSelector(state => state);
   dataReducer = dataReducer['dataReducer'];
-  let listData: [] = dataReducer['data'];
+  let listData: Data[] = dataReducer['data'];
 
   const dispatch = useDispatch();
 
@@ -61,11 +62,10 @@ const ModalScreen = (props: any) => {
               renderItem={({item}) => (
                 <View style={styles.containerParent}>
                   <View style={styles.container}>
-                    <Text>{item['title']}</Text>
+                    <Text>{item.title}</Text>
                   </View>
                 </View>
               )}
-              keyExtractor={item => item['id']}
               extraData={listData}
             />
           </SafeAreaView>
