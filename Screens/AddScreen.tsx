@@ -12,6 +12,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from 'react-native-navigation';
 import {addData} from '../src/redux/actions';
 import Toast from 'react-native-simple-toast';
+import {Data} from '../src/types/types';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -19,10 +20,10 @@ const windowHeight = Dimensions.get('window').height;
 const AddScreen = (props: any) => {
   let dataReducer: any = useSelector(state => state);
   dataReducer = dataReducer['dataReducer'];
-  let listData: [] = dataReducer['data'];
+  let listData: Data[] = dataReducer['data'];
 
   const getID = (): number => {
-    let IDs = listData.map(data => data['id']);
+    let IDs = listData.map(data => data.id);
     let max = Math.max(...IDs);
     return max + 1;
   };
