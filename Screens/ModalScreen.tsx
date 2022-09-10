@@ -51,7 +51,7 @@ const ModalScreen = (props: any) => {
     }
   }, []);
   return (
-    <View>
+    <View style={styles.main}>
       <Button title="add" onPress={() => goToScreen('Add')}></Button>
       <SafeAreaView>
         <FlatList
@@ -81,6 +81,9 @@ ModalScreen.options = {
 };
 
 const styles = StyleSheet.create({
+  main: {
+    backgroundColor: '#F1F1F1',
+  },
   flatList: {
     paddingBottom: 445,
   },
@@ -95,6 +98,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 10,
     shadowColor: '#000000',
+    borderColor: 'black',
+
     shadowOffset: {
       width: 0,
       height: 3,

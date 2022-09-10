@@ -1,8 +1,18 @@
-import {View, Text, TouchableOpacity, StyleSheet, Button} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+  Button,
+  Pressable,
+  Dimensions,
+} from 'react-native';
 import React from 'react';
 import {Navigation} from 'react-native-navigation';
 
 const MoreScreen = (props: any) => {
+  const windowWidth = Dimensions.get('window').width;
+  const windowHeight = Dimensions.get('window').height;
   const showModal = () => {
     Navigation.showModal({
       stack: {
@@ -25,7 +35,13 @@ const MoreScreen = (props: any) => {
   };
   return (
     <View style={styles.container}>
-      <Button title="More Options" onPress={() => showModal()} />
+      <Pressable style={styles.button} onPress={() => showModal()}>
+        <Text style={styles.text}>Open Model</Text>
+      </Pressable>
+      {/* <Button
+       title="Open Model" 
+       onPress={() => showModal()}
+        /> */}
     </View>
   );
 };
@@ -39,10 +55,31 @@ MoreScreen.options = {
 };
 
 const styles = StyleSheet.create({
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
+  },
   container: {
     padding: 16,
     marginTop: 24,
+    flexDirection: 'column',
+    alignItems: 'center',
+    flex: 1,
+    justifyContent: 'center',
   },
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 12,
+    paddingHorizontal: 32,
+    borderRadius: 4,
+    elevation: 3,
+    backgroundColor: '#0A45EF',
+  },
+
   screenTitle: {
     fontSize: 24,
     marginTop: 8,
