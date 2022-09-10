@@ -31,9 +31,7 @@ const MoreScreen = (props: any) => {
 };
 MoreScreen.options = {
   topBar: {
-    title: {
-      text: 'More',
-    },
+    visible: false,
   },
   bottomTab: {
     text: 'More',

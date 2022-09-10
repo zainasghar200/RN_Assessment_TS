@@ -8,12 +8,27 @@ import {
   TextInput,
 } from 'react-native';
 import React, {useState} from 'react';
+import {useDispatch, useSelector} from 'react-redux';
+import {ADD_DATA} from '../src/redux/actionTypes';
 
 const AddScreen = (props: any) => {
   const [value, setValue] = useState('');
+
+  const dispatch = useDispatch();
+
   const onAdd = () => {
-    console.log(value);
+    let dataObj = {
+      id: 556677,
+      title: value,
+    };
+    let obj = {
+      type: ADD_DATA,
+      payload: dataObj,
+    };
+    dispatch(obj);
+    // dispatch(obj);
   };
+
   return (
     <View style={styles.container}>
       <TextInput

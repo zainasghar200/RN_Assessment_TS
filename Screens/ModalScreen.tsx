@@ -10,9 +10,16 @@ import {
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Navigation} from 'react-native-navigation';
+import {useDispatch, useSelector} from 'react-redux';
+import {SET_DATA} from '../src/redux/actionTypes';
+import {setData} from '../src/redux/actions';
 
 const ModalScreen = (props: any) => {
-  const [data, setData] = useState([]);
+  let dataReducer: any = useSelector(state => state);
+  dataReducer = dataReducer['dataReducer'];
+  let listData: [] = dataReducer['data'];
+  const dispatch = useDispatch();
+
   const navigationButtonPressed = (buttonId: any) => {
     if (buttonId === 'dismiss') {
       console.log('dismiss navigationButtonPressed');
@@ -31,7 +38,13 @@ const ModalScreen = (props: any) => {
     fetch(url)
       .then(res => res.json())
       .then(resJson => {
-        setData(resJson);
+        //setData(resJson);
+        let obj = {
+          type: SET_DATA,
+          payload: resJson,
+        };
+        dispatch(obj);
+        //console.log(resJson);
       })
       .catch(e => console.log(e));
   }, []);
@@ -40,7 +53,8 @@ const ModalScreen = (props: any) => {
       <Button title="add" onPress={() => goToScreen('Add')}></Button>
       <SafeAreaView>
         <FlatList
-          data={data}
+          contentContainerStyle={{paddingBottom: 200}}
+          data={listData}
           renderItem={({item}) => (
             <View style={styles.containerParent}>
               <View style={styles.container}>
@@ -48,6 +62,8 @@ const ModalScreen = (props: any) => {
               </View>
             </View>
           )}
+          keyExtractor={item => item['id']}
+          extraData={listData}
         />
       </SafeAreaView>
     </View>
@@ -63,6 +79,9 @@ ModalScreen.options = {
 };
 
 const styles = StyleSheet.create({
+  flatList: {
+    paddingBottom: 445,
+  },
   containerParent: {
     paddingHorizontal: 15,
   },
