@@ -10,10 +10,6 @@ export interface SetDataAction {
   payload: Data[];
 }
 
-export interface AppState {
-  data: Data[];
-}
-
 export interface InitialState {
   data: Data[];
 }

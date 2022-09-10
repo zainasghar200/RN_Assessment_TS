@@ -17,7 +17,7 @@ const dataReducer = (state: InitialState = initialState, action: Action) => {
       return {...state, data: action.payload};
     case ADD_DATA:
       let stateData = state.data;
-      stateData.push(action.payload);
+      stateData.unshift(action.payload);
       return {...state, data: stateData};
     default:
       return state;

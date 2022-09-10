@@ -9,15 +9,13 @@ import {
 
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {Navigation} from 'react-native-navigation';
 import {addData} from '../redux/actions';
 import Toast from 'react-native-simple-toast';
 import {Data} from '../types/types';
 
 const windowWidth = Dimensions.get('window').width;
-const windowHeight = Dimensions.get('window').height;
 
-const AddScreen = (props: any) => {
+const AddScreen = () => {
   let dataReducer: any = useSelector(state => state);
   dataReducer = dataReducer['dataReducer'];
   let listData: Data[] = dataReducer['data'];
@@ -33,13 +31,11 @@ const AddScreen = (props: any) => {
 
   const onAdd = () => {
     let dataObj = {
-      id: getID(),
+      id: getID(), //getting new unique ID based on the data
       title: value,
     };
-
+    //Calling Action ADD_Data
     addData(dataObj, dispatch);
-
-    //Navigation.pop('Add');
     setValue('');
     Toast.show('Data Added.');
   };
