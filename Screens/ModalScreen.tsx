@@ -1,12 +1,10 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
-  Image,
-  Button,
   SafeAreaView,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {Navigation} from 'react-native-navigation';
@@ -18,6 +16,8 @@ import {InitialState} from '../src/interfaces/interfaces';
 
 const ModalScreen = (props: any) => {
   //const listData = useSelector((state: InitialState) => state.data);
+
+  const [isLoading, setIsLoading] = useState(false);
 
   let dataReducer: any = useSelector(state => state);
   dataReducer = dataReducer['dataReducer'];
@@ -35,33 +35,43 @@ const ModalScreen = (props: any) => {
   };
   useEffect(() => {
     if (listData.length <= 0) {
+      setIsLoading(true);
       const url = 'https://gorest.co.in/public/v2/posts';
       fetch(url)
         .then(res => res.json())
         .then(resJson => {
           setData(resJson, dispatch);
+          setIsLoading(false);
         })
-        .catch(e => console.log(e));
+        .catch(e => {
+          console.log(e);
+          setIsLoading(false);
+        });
     }
   }, []);
   return (
     <View style={styles.main}>
-      <SafeAreaView>
-        <FlatList
-          contentContainerStyle={{paddingBottom: 100}}
-          data={listData}
-          renderItem={({item}) => (
-            <View style={styles.containerParent}>
-              <View style={styles.container}>
-                <Text>{item['title']}</Text>
-              </View>
-            </View>
-          )}
-          keyExtractor={item => item['id']}
-          extraData={listData}
-        />
-      </SafeAreaView>
-      <FAB onPress={() => goToScreen('Add')} title="Add" />
+      {isLoading && <ActivityIndicator size="large" color="#0A45EF" />}
+      {!isLoading && (
+        <View>
+          <SafeAreaView>
+            <FlatList
+              contentContainerStyle={{paddingBottom: 100}}
+              data={listData}
+              renderItem={({item}) => (
+                <View style={styles.containerParent}>
+                  <View style={styles.container}>
+                    <Text>{item['title']}</Text>
+                  </View>
+                </View>
+              )}
+              keyExtractor={item => item['id']}
+              extraData={listData}
+            />
+          </SafeAreaView>
+          <FAB onPress={() => goToScreen('Add')} title="Add" />
+        </View>
+      )}
     </View>
   );
 };
@@ -75,8 +85,15 @@ ModalScreen.options = {
 };
 
 const styles = StyleSheet.create({
+  loader: {
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
   main: {
     backgroundColor: '#F1F1F1',
+    height: '100%',
+    flex: 1,
+    justifyContent: 'center',
   },
   flatList: {
     paddingBottom: 445,

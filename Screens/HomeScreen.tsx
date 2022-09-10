@@ -38,12 +38,13 @@ HomeScreen.options = {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 16,
-    marginTop: 24,
+    flex: 1,
+    justifyContent: 'center',
+    flexDirection: 'column',
+    alignItems: 'center',
   },
   screenTitle: {
     fontSize: 24,
-    marginTop: 8,
     fontWeight: 'bold',
   },
 });
