@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import React, {FunctionComponent} from 'react';
 import {NavigationProvider} from 'react-native-navigation-hooks';
 import {PersistGate} from 'redux-persist/integration/react';
-import {persistor} from '../../src/redux/store';
+import {persistor} from '../../redux/store';
 export const appProvider = (
   ComponentId: string,
   Component: FunctionComponent,
