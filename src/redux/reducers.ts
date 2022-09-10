@@ -16,10 +16,9 @@ const dataReducer = (state: InitialState = initialState, action: Action) => {
     case SET_DATA:
       return {...state, data: action.payload};
     case ADD_DATA:
-      let s = state.data;
-      s.push(action.payload);
-      console.log(s);
-      return {...state, data: s};
+      let stateData = state.data;
+      stateData.push(action.payload);
+      return {...state, data: stateData};
     default:
       return state;
   }

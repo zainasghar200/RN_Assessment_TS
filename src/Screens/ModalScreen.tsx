@@ -9,15 +9,12 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Navigation} from 'react-native-navigation';
 import {useDispatch, useSelector} from 'react-redux';
-import {SET_DATA} from '../redux/actionTypes';
 import {setData} from '../redux/actions';
 import FAB from '../components/FAB';
-import {InitialState} from '../interfaces/interfaces';
 import {Data} from '../types/types';
+import Toast from 'react-native-simple-toast';
 
 const ModalScreen = (props: any) => {
-  //const listData = useSelector((state: InitialState) => state.data);
-
   const [isLoading, setIsLoading] = useState(false);
 
   let dataReducer: any = useSelector(state => state);
@@ -27,7 +24,6 @@ const ModalScreen = (props: any) => {
   const dispatch = useDispatch();
 
   const goToScreen = (screen: string) => {
-    console.log(screen);
     Navigation.push(props.componentId, {
       component: {
         name: screen,
@@ -45,8 +41,8 @@ const ModalScreen = (props: any) => {
           setIsLoading(false);
         })
         .catch(e => {
-          console.log(e);
           setIsLoading(false);
+          Toast.show('Something went wrong.');
         });
     }
   }, []);
