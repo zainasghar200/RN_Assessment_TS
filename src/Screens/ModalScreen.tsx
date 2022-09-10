@@ -13,7 +13,7 @@ import {setData} from '../redux/actions';
 import FAB from '../components/FAB';
 import {Data} from '../types/types';
 import Toast from 'react-native-simple-toast';
-import {ADD_SCREEN} from '../services/constants';
+import {ADD_SCREEN, API_URL} from '../services/constants';
 
 const ModalScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -34,8 +34,7 @@ const ModalScreen = (props: any) => {
   useEffect(() => {
     if (listData.length <= 0) {
       setIsLoading(true);
-      const url = 'https://gorest.co.in/public/v2/posts';
-      fetch(url)
+      fetch(API_URL)
         .then(res => res.json())
         .then(resJson => {
           setData(resJson, dispatch);
