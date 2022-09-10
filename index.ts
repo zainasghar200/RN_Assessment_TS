@@ -32,7 +32,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               ],
               options: {
                 bottomTab: {
-                  icon: require('./assets/icons/home.png'),
+                  icon: require('./src/assets/icons/home.png'),
                 },
               },
             },
@@ -50,7 +50,7 @@ Navigation.events().registerAppLaunchedListener(() => {
               ],
               options: {
                 bottomTab: {
-                  icon: require('./assets/icons/menu.png'),
+                  icon: require('./src/assets/icons/menu.png'),
                 },
               },
             },
