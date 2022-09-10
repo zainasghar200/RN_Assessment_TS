@@ -12,6 +12,8 @@ import {
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {ADD_DATA} from '../src/redux/actionTypes';
+import {Navigation} from 'react-native-navigation';
+import {addData} from '../src/redux/actions';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
@@ -22,14 +24,14 @@ const AddScreen = (props: any) => {
 
   const onAdd = () => {
     let dataObj = {
-      id: 556677,
+      id: 12,
       title: value,
     };
-    let obj = {
-      type: ADD_DATA,
-      payload: dataObj,
-    };
-    dispatch(obj);
+
+    addData(dataObj, dispatch);
+
+    //Navigation.pop('Add');
+    setValue('');
   };
 
   return (
@@ -43,7 +45,7 @@ const AddScreen = (props: any) => {
         placeholder="Add Your Text Here..."
       />
       <Pressable style={styles.button} onPress={() => onAdd()}>
-        <Text style={styles.text}>Open Model</Text>
+        <Text style={styles.text}>Done</Text>
       </Pressable>
     </View>
   );

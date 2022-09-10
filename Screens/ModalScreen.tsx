@@ -20,11 +20,6 @@ const ModalScreen = (props: any) => {
   let listData: [] = dataReducer['data'];
   const dispatch = useDispatch();
 
-  const navigationButtonPressed = (buttonId: any) => {
-    if (buttonId === 'dismiss') {
-      console.log('dismiss navigationButtonPressed');
-    }
-  };
   const goToScreen = (screen: string) => {
     console.log(screen);
     Navigation.push(props.componentId, {
@@ -39,12 +34,12 @@ const ModalScreen = (props: any) => {
       fetch(url)
         .then(res => res.json())
         .then(resJson => {
-          //setData(resJson);
-          let obj = {
-            type: SET_DATA,
-            payload: resJson,
-          };
-          dispatch(obj);
+          setData(resJson, dispatch);
+          // let obj = {
+          //   type: SET_DATA,
+          //   payload: resJson,
+          // };
+          // dispatch(obj);
           //console.log(resJson);
         })
         .catch(e => console.log(e));
