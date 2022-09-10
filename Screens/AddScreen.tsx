@@ -6,16 +6,21 @@ import {
   Pressable,
   Dimensions,
 } from 'react-native';
+
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from 'react-native-navigation';
 import {addData} from '../src/redux/actions';
+import Toast from 'react-native-simple-toast';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const AddScreen = (props: any) => {
   let dataReducer: any = useSelector(state => state);
+
+  console.log(dataReducer);
+
   dataReducer = dataReducer['dataReducer'];
   let listData: [] = dataReducer['data'];
 
@@ -38,6 +43,7 @@ const AddScreen = (props: any) => {
 
     //Navigation.pop('Add');
     setValue('');
+    Toast.show('Data Added.');
   };
 
   return (
