@@ -11,7 +11,7 @@ import {Navigation} from 'react-native-navigation';
 import {useDispatch, useSelector} from 'react-redux';
 import {SET_DATA} from '../src/redux/actionTypes';
 import {setData} from '../src/redux/actions';
-import FAB from '../components/FAB';
+import FAB from '../src/components/FAB';
 import {InitialState} from '../src/interfaces/interfaces';
 import {Data} from '../src/types/types';
 
