@@ -1,23 +1,7 @@
 import {ADD_DATA, SET_DATA} from './actionTypes';
 
 const initialState = {
-  data: [
-    {
-      title: 'Hello',
-      age: 12,
-      ADD_DATA: 'ADD_DATA Type',
-    },
-    {
-      title: 'Hello1',
-      age: 12,
-      ADD_DATA: 'ADD_DATA Type',
-    },
-    {
-      title: 'Hello3',
-      age: 12,
-      ADD_DATA: 'ADD_DATA Type',
-    },
-  ],
+  data: [],
 };
 
 interface AddDataAction {

@@ -3,8 +3,8 @@ import AddScreen from './Screens/AddScreen';
 import HomeScreen from './Screens/HomeScreen';
 import ModalScreen from './Screens/ModalScreen';
 import MoreScreen from './Screens/MoreScreen';
-import {store} from './src/redux/store';
 import {appProvider} from './services/navigation/provider';
+import store from './src/redux/store';
 
 Navigation.registerComponent('Modal', () =>
   appProvider('Modal', ModalScreen, store),

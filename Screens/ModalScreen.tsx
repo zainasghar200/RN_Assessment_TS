@@ -34,19 +34,21 @@ const ModalScreen = (props: any) => {
     });
   };
   useEffect(() => {
-    const url = 'https://gorest.co.in/public/v2/posts';
-    fetch(url)
-      .then(res => res.json())
-      .then(resJson => {
-        //setData(resJson);
-        let obj = {
-          type: SET_DATA,
-          payload: resJson,
-        };
-        dispatch(obj);
-        //console.log(resJson);
-      })
-      .catch(e => console.log(e));
+    if (listData.length <= 0) {
+      const url = 'https://gorest.co.in/public/v2/posts';
+      fetch(url)
+        .then(res => res.json())
+        .then(resJson => {
+          //setData(resJson);
+          let obj = {
+            type: SET_DATA,
+            payload: resJson,
+          };
+          dispatch(obj);
+          //console.log(resJson);
+        })
+        .catch(e => console.log(e));
+    }
   }, []);
   return (
     <View>
