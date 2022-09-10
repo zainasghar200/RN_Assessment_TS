@@ -76,6 +76,7 @@ const styles = StyleSheet.create({
     marginTop: 30,
   },
   input: {
+    textAlignVertical: 'top',
     paddingHorizontal: 10,
     backgroundColor: 'white',
     borderRadius: 7,
