@@ -9,11 +9,11 @@ import {
 import React, {useEffect, useState} from 'react';
 import {Navigation} from 'react-native-navigation';
 import {useDispatch, useSelector} from 'react-redux';
-import {SET_DATA} from '../src/redux/actionTypes';
-import {setData} from '../src/redux/actions';
-import FAB from '../src/components/FAB';
-import {InitialState} from '../src/interfaces/interfaces';
-import {Data} from '../src/types/types';
+import {SET_DATA} from '../redux/actionTypes';
+import {setData} from '../redux/actions';
+import FAB from '../components/FAB';
+import {InitialState} from '../interfaces/interfaces';
+import {Data} from '../types/types';
 
 const ModalScreen = (props: any) => {
   //const listData = useSelector((state: InitialState) => state.data);
@@ -74,14 +74,6 @@ const ModalScreen = (props: any) => {
       )}
     </View>
   );
-};
-ModalScreen.options = {
-  topBar: {
-    rightButtons: {
-      id: 'dismiss',
-      icon: require('../assets/icons/dismiss.png'),
-    },
-  },
 };
 
 const styles = StyleSheet.create({

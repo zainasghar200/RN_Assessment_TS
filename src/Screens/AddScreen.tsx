@@ -10,9 +10,9 @@ import {
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
 import {Navigation} from 'react-native-navigation';
-import {addData} from '../src/redux/actions';
+import {addData} from '../redux/actions';
 import Toast from 'react-native-simple-toast';
-import {Data} from '../src/types/types';
+import {Data} from '../types/types';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
