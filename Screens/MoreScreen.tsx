@@ -38,10 +38,6 @@ const MoreScreen = (props: any) => {
       <Pressable style={styles.button} onPress={() => showModal()}>
         <Text style={styles.text}>Open Model</Text>
       </Pressable>
-      {/* <Button
-       title="Open Model" 
-       onPress={() => showModal()}
-        /> */}
     </View>
   );
 };

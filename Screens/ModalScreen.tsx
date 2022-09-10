@@ -13,11 +13,16 @@ import {Navigation} from 'react-native-navigation';
 import {useDispatch, useSelector} from 'react-redux';
 import {SET_DATA} from '../src/redux/actionTypes';
 import {setData} from '../src/redux/actions';
+import FAB from '../components/FAB';
+import {InitialState} from '../src/interfaces/interfaces';
 
 const ModalScreen = (props: any) => {
+  //const listData = useSelector((state: InitialState) => state.data);
+
   let dataReducer: any = useSelector(state => state);
   dataReducer = dataReducer['dataReducer'];
   let listData: [] = dataReducer['data'];
+
   const dispatch = useDispatch();
 
   const goToScreen = (screen: string) => {
@@ -35,22 +40,15 @@ const ModalScreen = (props: any) => {
         .then(res => res.json())
         .then(resJson => {
           setData(resJson, dispatch);
-          // let obj = {
-          //   type: SET_DATA,
-          //   payload: resJson,
-          // };
-          // dispatch(obj);
-          //console.log(resJson);
         })
         .catch(e => console.log(e));
     }
   }, []);
   return (
     <View style={styles.main}>
-      <Button title="add" onPress={() => goToScreen('Add')}></Button>
       <SafeAreaView>
         <FlatList
-          contentContainerStyle={{paddingBottom: 200}}
+          contentContainerStyle={{paddingBottom: 100}}
           data={listData}
           renderItem={({item}) => (
             <View style={styles.containerParent}>
@@ -63,6 +61,7 @@ const ModalScreen = (props: any) => {
           extraData={listData}
         />
       </SafeAreaView>
+      <FAB onPress={() => goToScreen('Add')} title="Add" />
     </View>
   );
 };

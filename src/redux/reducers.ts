@@ -1,7 +1,11 @@
-import {AddDataAction, SetDataAction} from '../interfaces/interfaces';
+import {
+  AddDataAction,
+  InitialState,
+  SetDataAction,
+} from '../interfaces/interfaces';
 import {ADD_DATA, SET_DATA} from './actionTypes';
 
-const initialState = {
+const initialState: InitialState = {
   data: [],
 };
 

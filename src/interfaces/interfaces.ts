@@ -11,3 +11,7 @@ export interface SetDataAction {
 export interface AppState {
   data: any; //list of data
 }
+
+export interface InitialState {
+  data: any;
+}

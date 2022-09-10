@@ -1,30 +1,36 @@
 import {
   View,
   Text,
-  TouchableOpacity,
   StyleSheet,
-  Image,
-  Button,
   TextInput,
   Pressable,
   Dimensions,
 } from 'react-native';
 import React, {useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {ADD_DATA} from '../src/redux/actionTypes';
 import {Navigation} from 'react-native-navigation';
 import {addData} from '../src/redux/actions';
 
 const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
+
 const AddScreen = (props: any) => {
+  let dataReducer: any = useSelector(state => state);
+  dataReducer = dataReducer['dataReducer'];
+  let listData: [] = dataReducer['data'];
+
+  const getID = (): number => {
+    let IDs = listData.map(data => data['id']);
+    let max = Math.max(...IDs);
+    return max + 1;
+  };
   const [value, setValue] = useState('');
 
   const dispatch = useDispatch();
 
   const onAdd = () => {
     let dataObj = {
-      id: 12,
+      id: getID(),
       title: value,
     };
 
