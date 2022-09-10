@@ -42,7 +42,7 @@ const ModalScreen = (props: any) => {
         })
         .catch(e => {
           setIsLoading(false);
-          Toast.show('Something went wrong.');
+          Toast.show('Something went wrong!');
         });
     }
   }, []);
