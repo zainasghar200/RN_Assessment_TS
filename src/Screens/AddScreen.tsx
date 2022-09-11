@@ -15,6 +15,7 @@ import {Data} from '../types/types';
 import {Navigation} from 'react-native-navigation';
 
 const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const AddScreen = (props: any) => {
   let dataReducer: any = useSelector(state => state);
@@ -68,6 +69,9 @@ AddScreen.options = {
     title: {
       text: 'Adding Data',
     },
+    backButton: {
+      showTitle: false,
+    },
   },
 };
 const styles = StyleSheet.create({
@@ -91,15 +95,19 @@ const styles = StyleSheet.create({
   },
   input: {
     textAlignVertical: 'top',
-    paddingHorizontal: 10,
     backgroundColor: 'white',
     borderRadius: 7,
     width: windowWidth * 0.9,
+    height: windowHeight * 0.4,
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowRadius: 5,
+    shadowOpacity: 0.3,
   },
 
   container: {
-    backgroundColor: '#F1F1F1',
-
     padding: 16,
     flexDirection: 'column',
     alignItems: 'center',

@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   main: {
-    backgroundColor: '#F1F1F1',
     height: '100%',
     flex: 1,
     justifyContent: 'center',
@@ -109,15 +108,13 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: 'white',
     borderRadius: 10,
-    shadowColor: '#000000',
-    borderColor: 'black',
 
     shadowOffset: {
       width: 0,
       height: 3,
     },
     shadowRadius: 5,
-    shadowOpacity: 1.0,
+    shadowOpacity: 0.3,
   },
   screenTitle: {
     fontSize: 24,
