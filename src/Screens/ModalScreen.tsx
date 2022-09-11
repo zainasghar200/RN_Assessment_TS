@@ -81,6 +81,7 @@ ModalScreen.options = {
     rightButtons: {
       id: 'dismiss',
       text: 'Add',
+      allCaps: false,
     },
   },
 };
