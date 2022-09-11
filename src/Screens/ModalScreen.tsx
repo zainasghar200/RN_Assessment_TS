@@ -10,10 +10,10 @@ import React, {useEffect, useState} from 'react';
 import {Navigation} from 'react-native-navigation';
 import {useDispatch, useSelector} from 'react-redux';
 import {setData} from '../redux/actions';
-import FAB from '../components/FAB';
 import {Data} from '../types/types';
 import Toast from 'react-native-simple-toast';
 import {ADD_SCREEN, API_URL} from '../services/constants';
+import {ButtonEvent} from '../interfaces/interfaces';
 
 const ModalScreen = (props: any) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -31,7 +31,21 @@ const ModalScreen = (props: any) => {
       },
     });
   };
+
   useEffect(() => {
+    const listener = {
+      navigationButtonPressed: (event: ButtonEvent) => {
+        if (event.buttonId === 'addData') {
+          goToScreen(ADD_SCREEN);
+        }
+      },
+    };
+    // Register the listener to all events related to our component
+    const unsubscribe = Navigation.events().registerComponentListener(
+      listener,
+      props.componentId,
+    );
+
     if (listData.length <= 0) {
       setIsLoading(true);
       fetch(API_URL)
@@ -45,6 +59,11 @@ const ModalScreen = (props: any) => {
           Toast.show('Something went wrong!');
         });
     }
+
+    return () => {
+      // Make sure to unregister the listener during cleanup
+      unsubscribe.remove();
+    };
   }, []);
   return (
     <View style={styles.main}>
@@ -65,7 +84,6 @@ const ModalScreen = (props: any) => {
               extraData={listData}
             />
           </SafeAreaView>
-          <FAB onPress={() => goToScreen(ADD_SCREEN)} title="Add" />
         </View>
       )}
     </View>
@@ -79,7 +97,7 @@ const navigationButtonPressed = () => {
 ModalScreen.options = {
   topBar: {
     rightButtons: {
-      id: 'dismiss',
+      id: 'addData',
       text: 'Add',
       allCaps: false,
     },
