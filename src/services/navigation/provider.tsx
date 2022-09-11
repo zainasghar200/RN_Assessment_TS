@@ -13,7 +13,7 @@ export const appProvider = (
     return (
       <Provider store={store}>
         <PersistGate persistor={persistor}>
-          <NavigationProvider value={{componentId: ComponentId}}>
+          <NavigationProvider value={{componentId: props.componentId}}>
             <Component {...props} />
           </NavigationProvider>
         </PersistGate>

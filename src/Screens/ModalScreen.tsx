@@ -72,6 +72,18 @@ const ModalScreen = (props: any) => {
   );
 };
 
+const navigationButtonPressed = () => {
+  console.log('navigationButtonPressed');
+};
+
+ModalScreen.options = {
+  topBar: {
+    rightButtons: {
+      id: 'dismiss',
+      text: 'Add',
+    },
+  },
+};
 const styles = StyleSheet.create({
   loader: {
     alignItems: 'center',

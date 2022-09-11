@@ -12,11 +12,15 @@ import {
   MORE_SCREEN,
 } from './src/services/constants';
 
-Navigation.registerComponent(MODAL_SCREEN, () =>
-  appProvider(MODAL_SCREEN, ModalScreen, store),
+Navigation.registerComponent(
+  MODAL_SCREEN,
+  () => appProvider(MODAL_SCREEN, ModalScreen, store),
+  () => ModalScreen,
 );
-Navigation.registerComponent(ADD_SCREEN, () =>
-  appProvider(ADD_SCREEN, AddScreen, store),
+Navigation.registerComponent(
+  ADD_SCREEN,
+  () => appProvider(ADD_SCREEN, AddScreen, store),
+  () => AddScreen,
 );
 Navigation.registerComponent(HOME_SCREEN, () => HomeScreen);
 Navigation.registerComponent(MORE_SCREEN, () => MoreScreen);
