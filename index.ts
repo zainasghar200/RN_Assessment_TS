@@ -30,6 +30,7 @@ Navigation.events().registerAppLaunchedListener(() => {
     root: {
       bottomTabs: {
         id: 'bottomTabs',
+
         children: [
           {
             stack: {
@@ -45,6 +46,8 @@ Navigation.events().registerAppLaunchedListener(() => {
               options: {
                 bottomTab: {
                   icon: require('./src/assets/icons/home.png'),
+                  selectedIconColor: 'blue',
+                  selectedTextColor: 'blue',
                 },
               },
             },
@@ -63,6 +66,8 @@ Navigation.events().registerAppLaunchedListener(() => {
               options: {
                 bottomTab: {
                   icon: require('./src/assets/icons/menu.png'),
+                  selectedIconColor: 'blue',
+                  selectedTextColor: 'blue',
                 },
               },
             },
