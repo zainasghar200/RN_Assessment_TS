@@ -104,7 +104,7 @@ const styles = StyleSheet.create({
       height: 3,
     },
     shadowRadius: 5,
-    shadowOpacity: 0.3,
+    shadowOpacity: 0.2,
   },
 
   container: {
