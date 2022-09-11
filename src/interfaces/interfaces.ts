@@ -13,3 +13,7 @@ export interface SetDataAction {
 export interface InitialState {
   data: Data[];
 }
+export interface ButtonEvent {
+  buttonId: string;
+  componentId: string;
+}
